@@ -6,7 +6,7 @@ import react from "react";
 
 export default function Home() {
   useEffect(() => {
-    fetch("http://localhost:3000/api/hello").then((res) => {
+    fetch("https://directa.netlify.app/api/hello").then((res) => {
       res.json().then((data) => {
         console.log(data);
       });
