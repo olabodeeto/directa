@@ -10,13 +10,13 @@ import hand from "../assets/hand.svg";
 import Link from "next/link";
 
 export default function Home() {
-  useEffect(() => {
-    fetch(`${Constants.baseUrl}/hello`).then((res) => {
-      res.json().then((data) => {
-        console.log(data);
-      });
-    });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${Constants.baseUrl}/hello`).then((res) => {
+  //     res.json().then((data) => {
+  //       console.log(data);
+  //     });
+  //   });
+  // }, []);
 
   return (
     <>
