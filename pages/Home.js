@@ -9,13 +9,13 @@ export default function Home({ email, name, balance, planActive, plan }) {
   const [bal, setbal] = useState(0);
   console.log(planActive);
 
-  async function getBalance() {
-    const res = await fetch(`${Constants.baseUrl}\currentBalance`);
-    const data = await res.json();
-    setbal(data.balance);
-  }
+  // async function getBalance() {
+  //   const res = await fetch(`${Constants.baseUrl}\currentBalance`);
+  //   const data = await res.json();
+  //   setbal(data.balance);
+  // }
   useEffect(() => {
-    getBalance();
+    // getBalance();
     if (email) {
       console.log(email, name);
     }
