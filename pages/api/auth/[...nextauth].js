@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import NextAuth from "next-auth";
 import CredentialProvider from "next-auth/providers/credentials";
 import User from "../../../models/userModel";
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 import { Constants } from "../../../Constants";
 
 export default NextAuth({

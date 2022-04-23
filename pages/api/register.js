@@ -1,5 +1,5 @@
 import protectAPI from "../../middlewares/protectAPI";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import User from "../../models/userModel";
 
 async function handler(req, res) {
