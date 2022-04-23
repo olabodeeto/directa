@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "currency-formatter": "^1.5.9",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.0",
     "mysql": "^2.18.1",
     "next": "12.1.5",
+    "next-auth": "^4.3.3",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "serverless-mysql": "^1.5.4"

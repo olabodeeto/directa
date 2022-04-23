@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { signOut } from "next-auth/react";
 
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Header() {
+export default function HeaderHome() {
   const [navbarOpen, setnavbarOpen] = useState(false);
 
   return (
@@ -47,22 +48,24 @@ export default function Header() {
           >
             <div className="md:flex flex-row gap-5 md:w-full">
               <div className="flex flex-col md:flex gap-5 md:flex-row md:gap-10 md:mt-4">
-                <li>
+                {/* <li>
                   <Link href="/">Home</Link>
-                </li>
+                </li> */}
 
-                <li>
-                  <Link href="/howitworks">How it works</Link>
-                </li>
-
-                <li>
-                  <Link href="/Signup">Create Account</Link>
-                </li>
+                {/* <li>
+                  <Link href="/bal">About</Link>
+                </li> */}
               </div>
               <div className="md:ml-60 md:flex md:flex-row">
-                <Link href="/Login">
-                  <button className=" bg-primarycolor md:bg-slate-800 md:ml-10 px-2 mt-4 md:mt-0 text-white py-3 md:px-10 flex justify-center gap-4">
-                    <span>Login</span>
+                <Link href="/Logout">
+                  <button
+                    className=" bg-primarycolor md:bg-slate-800 md:ml-10 px-2 mt-4 md:mt-0 text-white py-3 md:px-10 flex justify-center gap-4"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      signOut();
+                    }}
+                  >
+                    <span>Logout</span>
                   </button>
                 </Link>
               </div>

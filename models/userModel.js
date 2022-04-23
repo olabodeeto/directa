@@ -5,7 +5,6 @@ const userSchema = new schema(
   {
     fullname: {
       type: String,
-      required,
     },
     email: {
       type: String,
@@ -18,6 +17,12 @@ const userSchema = new schema(
     plan: {
       type: String,
     },
+    planActive: {
+      type: Boolean,
+    },
+    balance: {
+      type: Number,
+    },
     savingsAmount: {
       type: String,
     },
@@ -25,5 +30,4 @@ const userSchema = new schema(
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+export default mongoose.models.User || mongoose.model("User", userSchema);

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
+import { getSession } from "next-auth/react";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import react from "react";
@@ -20,7 +21,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="bg-indigo-50 h-screen pt-12">
+      <main className="bg-indigo-50 h-screen mt-16 overflow-hidden">
         <div className=" w-full m-auto h-full gap-4 flex flex-col lg:flex-row ">
           <div className=" py-10 lg:pl-28 lg:mt-28 w-full lg:w-6/12">
             <h1 className=" text-4xl text-center lg:text-left lg:text-6xl lg:w-10/12 mt-20">
@@ -46,4 +47,22 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: `/Home`,
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {
+      data: "",
+    }, // will be passed to the page component as props
+  };
 }

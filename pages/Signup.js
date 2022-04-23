@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { getSession } from "next-auth/react";
 import React, { useState } from "react";
 import Header from "../components/Header";
 import UserClass from "../classes/userClass";
+import Router from "next/router";
 
 export default function Signup() {
   const [fullname, setfullname] = useState("");
@@ -30,7 +32,7 @@ export default function Signup() {
     setplan({ planname: "Flexy", savingAmount: flexyAmount });
   };
 
-  const handleAccount = (e) => {
+  const handleAccount = async (e) => {
     e.preventDefault();
     let data = { fullname, email, password, plan };
     setbtnState("Processing...");
@@ -42,10 +44,17 @@ export default function Signup() {
       plan.savingAmount,
       password
     );
-    if (newUser.createAccount() === "Success") {
+    let res = await newUser.createAccount();
+    console.log(res);
+    if (res._id) {
+      setbtnState("Success!");
       setTimeout(() => {
-        console.log(data);
-        setbtnState("Done!");
+        Router.push("/Login");
+      }, 3000);
+    } else {
+      setbtnState("Action failed!");
+      setTimeout(() => {
+        setbtnState("Proceed");
       }, 3000);
     }
   };
@@ -81,7 +90,7 @@ export default function Signup() {
                 />
               </div>
               <div className="flex flex-col gap-2 mb-5">
-                <label>Password{password}</label>
+                <label>Password</label>
                 <input
                   type="password"
                   value={password}
@@ -113,7 +122,7 @@ export default function Signup() {
 
               {isFlex && (
                 <div className="flex flex-col gap-2 mb-5">
-                  <label>Input amount for flexy savings{password}</label>
+                  <label>Input amount for flexy savings</label>
                   <input
                     type="text"
                     required
@@ -137,4 +146,21 @@ export default function Signup() {
       </main>
     </>
   );
+}
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: `/Home`,
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {
+      data: "",
+    }, // will be passed to the page component as props
+  };
 }
