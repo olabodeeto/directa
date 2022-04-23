@@ -16,7 +16,7 @@ export default function Login() {
       password,
       // The page where you want to redirect to after a
       // successful login
-      callbackUrl: `/Home`,
+      callbackUrl: `https://directa.netlify.app/Home`,
     });
   };
 
