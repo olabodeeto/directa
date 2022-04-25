@@ -11,6 +11,7 @@ export default function Login() {
   const router = useRouter();
   const handleLogin = (e) => {
     e.preventDefault();
+    setbtnState("Processing...")
     signIn("credentials", {
       email,
       password,
