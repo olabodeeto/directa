@@ -19,17 +19,17 @@ export default function Signup() {
       setplan({ planname: "Gold", savingAmount: 5000 });
     } else if (planSelected === "Silver") {
       setisFlex(false);
-      setplan({ planname: "Gold", savingAmount: 1000 });
+      setplan({ planname: "Silver", savingAmount: 1000 });
     } else if (planSelected === "Plantinum") {
       setisFlex(false);
-      setplan({ planname: "Gold", savingAmount: 10000 });
-    } else if (planSelected === "Flexy") {
+      setplan({ planname: "Plantinum", savingAmount: 10000 });
+    } else if (planSelected === "Flexi") {
       setisFlex(true);
     }
   };
 
   const handleFlexyPlan = (flexyAmount) => {
-    setplan({ planname: "Flexy", savingAmount: flexyAmount });
+    setplan({ planname: "Flexi", savingAmount: flexyAmount });
   };
 
   const handleAccount = async (e) => {
@@ -116,7 +116,7 @@ export default function Signup() {
                   <option defaultValue="Silver">Silver</option>
                   <option value="Gold">Gold</option>
                   <option value="Plantinum">Plantinum</option>
-                  <option value="Flexy">Flexy</option>
+                  <option value="Flexi">Flexi</option>
                 </select>
               </div>
 

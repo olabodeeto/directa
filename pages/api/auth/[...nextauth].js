@@ -38,6 +38,7 @@ export default NextAuth({
               balance: user.balance,
               plan: user.plan,
               planActive: user.planActive,
+              savingsAmount: user.savingsAmount,
             };
           }
         } catch (error) {
@@ -61,6 +62,7 @@ export default NextAuth({
         token.balance = user.balance;
         token.plan = user.plan;
         token.planActive = user.planActive;
+        token.savingsAmount = user.savingsAmount;
       }
 
       return token;
@@ -74,6 +76,7 @@ export default NextAuth({
         session.balance = token.balance;
         session.plan = token.plan;
         session.planActive = token.planActive;
+        session.savingsAmount = token.savingsAmount;
       }
       return session;
     },
