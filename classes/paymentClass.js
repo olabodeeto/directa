@@ -15,7 +15,7 @@ export default class PaymentClass {
         reference: memberID,
         duration: 1,
         interval: "weekly",
-        redirect_url: "http://localhost:3000/Home",
+        redirect_url: `${Constants.siteUrl}/Home`,
       }),
     };
     try {
