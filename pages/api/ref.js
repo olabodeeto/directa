@@ -6,7 +6,7 @@ import protectAPI from "../../middlewares/protectAPI";
 let secret = "sec_YToy9KMlSJV7w97ZsCXc"; //test mode sk
 
 async function handler(req, res) {
-  const webhook = res.req.body;
+  const webhook = req.body;
 
   switch (webhook.event) {
     case "direct_debit.payment_successful":
