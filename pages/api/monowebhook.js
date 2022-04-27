@@ -4,7 +4,7 @@ import protectAPI from "../../middlewares/protectAPI";
 
 let secret = "sec_YToy9KMlSJV7w97ZsCXc";
 
-async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method === "POST") {
     const webhook = req.body;
 
@@ -72,4 +72,4 @@ async function handler(req, res) {
   }
 }
 
-export default protectAPI(handler);
+// export default protectAPI(handler);
