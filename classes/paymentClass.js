@@ -69,7 +69,7 @@ export default class PaymentClass {
       body: JSON.stringify(memberID),
     };
 
-    const res = await fetch(`${Constants.baseUrl}/currentbalance`, options);
+    const res = await fetch(`${Constants.baseUrl}/balance`, options);
     const data = res.json();
     return data;
   }
