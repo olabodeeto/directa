@@ -58,4 +58,19 @@ export default class PaymentClass {
     const data = res.json();
     return data;
   }
+
+  async currentBalance(memberID) {
+    const options = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(memberID),
+    };
+
+    const res = await fetch(`${Constants.baseUrl}/currentbalance`, options);
+    const data = res.json();
+    return data;
+  }
 }

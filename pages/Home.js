@@ -53,6 +53,16 @@ export default function Home({
     }
   }
 
+  async function currentBalance(memberID) {
+    const payment = new PaymentClass();
+    const res = await payment.currentBalance(memberID);
+    if (res) {
+      try {
+        setbal(res);
+      } catch (error) {}
+    }
+  }
+
   useEffect(() => {
     if (router.query.reference && router.query.status != "failed") {
       const prendingTransaction = {
@@ -65,6 +75,8 @@ export default function Home({
     }
 
     checkPending({ memberID: memberID });
+
+    currentBalance({ memberID: memberID });
   }, []);
 
   return (
@@ -74,7 +86,7 @@ export default function Home({
         <div className=" w-11/12 lg:w-5/12 m-auto bg-white">
           <div className="bg-slate-800 px-4 py-16 rounded-md">
             <p className="text-white text-center font-extrabold text-5xl">
-              {currencyFormatter.format(balance, {
+              {currencyFormatter.format(bal, {
                 code: "NGN",
               })}
             </p>
