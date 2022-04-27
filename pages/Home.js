@@ -30,7 +30,12 @@ export default function Home({
     let mono_RC = (0.5 / 100) * savingsAmount * 100;
     let amount = savingsAmount * 100 + mono_RC;
 
-    let res = await paymentMethod.monoPayment(amount, memberID + Date.now());
+    let res = await paymentMethod.monoPayment(
+      amount,
+      memberID + Date.now(),
+      savingsAmount,
+      bal
+    );
     if (res.payment_link) {
       console.log(res);
       window.location.href = res.payment_link;

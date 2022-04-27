@@ -1,6 +1,6 @@
 import { Constants } from "../Constants";
 export default class PaymentClass {
-  async monoPayment(amount, memberID) {
+  async monoPayment(amount, memberID, savingsAmount, currentBal) {
     const options = {
       method: "POST",
       headers: {
@@ -13,6 +13,11 @@ export default class PaymentClass {
         amount: amount,
         description: "WEEKLY SAVINGS",
         reference: memberID,
+        meta: {
+          memberID: memberID,
+          savingsAmount: savingsAmount,
+          currentBal: currentBal,
+        },
         duration: 1,
         interval: "weekly",
         redirect_url: `${Constants.siteUrl}/Home`,
