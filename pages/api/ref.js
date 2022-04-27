@@ -13,10 +13,10 @@ async function handler(req, res) {
     const amount = parseInt(req.body.data.object.amount);
 
     const trans = await Trans.findOne({
-      reference: hookreference,
+      reference: req.body.data.object.reference,
     });
 
-    if (trans) {
+    if (trans._id) {
       try {
         const ref = new Ref({
           amount: req.body.data.object.amount,
@@ -24,7 +24,6 @@ async function handler(req, res) {
         });
         const result = await ref.save(); //save user info
         if (result) {
-          console.log(result);
           res.status(200).send(result);
         }
       } catch (error) {
