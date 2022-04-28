@@ -7,5 +7,6 @@ export const Constants = {
     "mongodb+srv://codebreed:test1234@cluster0.q9ewb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   // dbLink: "mongodb://127.0.0.1/demo",
 
-  monoKey: "test_sk_Necp0J64zV85cYObX4pA",
+  // monoKey: "test_sk_Necp0J64zV85cYObX4pA",
+  monoKey: "live_sk_vwqKKcIIOTZiUsiiUxPi",
 };
