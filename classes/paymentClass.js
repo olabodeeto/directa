@@ -9,7 +9,7 @@ export default class PaymentClass {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        type: "onetime-debit",
+        type: "recurring-debit",
         amount: 20000,
         description: "WEEKLY SAVINGS",
         reference: memberID,
