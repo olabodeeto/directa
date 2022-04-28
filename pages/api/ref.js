@@ -81,6 +81,8 @@ async function handler(req, res) {
   }
 }
 
+export default protectAPI(handler);
+
 // async function handler(req, res) {
 //   const webhook = req.body;
 
@@ -134,5 +136,3 @@ async function handler(req, res) {
 //       break;
 //   }
 // }
-
-export default protectAPI(handler);
