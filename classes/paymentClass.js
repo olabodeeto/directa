@@ -10,7 +10,7 @@ export default class PaymentClass {
       },
       body: JSON.stringify({
         type: "recurring-debit",
-        amount: 20000,
+        amount: amount,
         description: "WEEKLY SAVINGS",
         reference: memberID,
         meta: {
