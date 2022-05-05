@@ -7,6 +7,7 @@ let secret = "sec_YToy9KMlSJV7w97ZsCXc"; //test mode sk
 
 async function handler(req, res) {
   const webhook = req.body;
+  res.status(200);
 
   switch (webhook.event) {
     case "direct_debit.payment_successful":
@@ -72,7 +73,7 @@ async function handler(req, res) {
             });
 
           if (!memberTransactionUpdate) return;
-          res.status(200).send(result);
+          // res.status(200).send(result);
         }
       } catch (error) {
         res.status(500).send({ message: "Error" });
